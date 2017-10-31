@@ -607,7 +607,7 @@ Terminal.prototype.bindMouse = function () {
         if (s.mouseEvents && !s.x10Mouse && !s.vt300Mouse && !s.decLocator) return a(c), events.cancel(c)
     });
     events.on(q, p, function (a) {
-        if (!s.mouseEvents && !s.applicationKeypad) return "DOMMouseScroll" === a.type ? s.scrollDisp(0 > a.detail ? -5 : 5) : s.scrollDisp(0 < a.wheelDeltaY ? -5 : 5), events.cancel(a)
+        if (!s.mouseEvents && !s.applicationKeypad) return "DOMMouseScroll" === a.type ? s.scrollDisp(0 > a.detail ? -1 : 1) : s.scrollDisp(0 < a.wheelDeltaY ? -1 : 1), events.cancel(a)
     })
 };
 
@@ -2065,11 +2065,11 @@ var initColors = function (colors) {
     var y = colors,
         f = [0, 95, 135, 175, 215, 255],
         v;
-        
+
     for (v = 0; 216 > v; v++) out(f[v / 36 % 6 | 0], f[v / 6 % 6 | 0], f[v % 6]);
-    
+
     for (v = 0; 24 > v; v++) f = 8 + 10 * v, out(f, f, f);
-    
+
     return y;
 };
 
@@ -2789,7 +2789,7 @@ function isVisible(el) {
         has      = contains == "contains" ? 1 : 0x10;
 
     // Return false if it's not in the viewport
-    if (rect.right < 0 || rect.bottom < 0 
+    if (rect.right < 0 || rect.bottom < 0
             || rect.left > vWidth || rect.top > vHeight)
         return false;
 

@@ -602,6 +602,7 @@ Terminal.prototype.bindMouse = function () {
     });
     events.on(q, "click", function (a) {
         s.selectionMode || s.focus()
+        a.stopPropagation()
     });
     events.on(q, p, function (c) {
         if (s.mouseEvents && !s.x10Mouse && !s.vt300Mouse && !s.decLocator) return a(c), events.cancel(c)
